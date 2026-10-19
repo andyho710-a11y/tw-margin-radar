@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T15:21:43+08:00",
+  "generated_at": "2026-10-19T15:25:24+08:00",
   "quotes_source": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
   "quotes_date": "2026-10-16",
   "official_margin_source": "https://openapi.twse.com.tw/v1/exchangeReport/MI_MARGN",
