@@ -1,0 +1,41 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>台股底部與融資雷達 V2</title><style>
+:root{font-family:system-ui,-apple-system,'Noto Sans TC',sans-serif;color-scheme:dark;background:#0d1422;color:#e7edf7}*{box-sizing:border-box}body{margin:0 auto;max-width:1000px;padding:18px}header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}h1{font-size:1.5rem;margin:10px 0}h2{font-size:1.05rem}small,.muted{color:#9baac1}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.card{background:#182439;border:1px solid #2c3c56;border-radius:14px;padding:16px;margin:12px 0}.value{font-size:1.5rem;font-weight:750;margin:8px 0}.warning{color:#f7c77c}.pill{font-size:.75rem;background:#28415d;border-radius:20px;padding:4px 8px}input,select{background:#101b2b;color:white;border:1px solid #3a4c66;border-radius:9px;padding:10px;max-width:100%}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #2d3a4d}th{color:#b6c6df}a{color:#88c4ff}.scroll{overflow-x:auto}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}button{background:#275f9b;color:white;border:0;padding:10px 12px;border-radius:8px;cursor:pointer}.note{line-height:1.65;font-size:.87rem}#errors{white-space:pre-line}
+.scroll table{min-width:620px}.scroll{max-width:100%;overscroll-behavior-x:contain}.card{min-width:0}.toolbar input{flex:1;min-width:140px}.note,#errors,header small{overflow-wrap:anywhere}button,input,select{min-height:44px}@media(max-width:420px){body{padding:12px}h1{font-size:1.25rem}.grid{grid-template-columns:1fr}.toolbar input{flex-basis:100%}}
+</style></head><body><header><h1>台股底部與融資雷達 <span class="pill">V2 研究版</span></h1><small id="updated">讀取中…</small></header>
+<div class="grid"><section class="card"><small>官方市場整戶擔保維持率</small><div class="value" id="ratio">尚無可驗證資料</div><small>不以其他融通維持率替代</small></section><section class="card"><small>可評分股票（近 7 日行情）</small><div class="value" id="count">—</div><small id="coverage">輪替掃描，非全市場每日覆蓋</small></section><section class="card"><small>今日歷史資料更新</small><div class="value" id="fetched">—</div><small>非官方 Yahoo 行情來源</small></section></div>
+<section class="card"><h2>資料狀態與限制</h2><div id="errors" class="warning">正在載入資料</div><p class="note">目前官方融資餘額原始資料有獨立保存，但尚未完成欄位解析、個股成本估算與歷史融資曲線。不會將融資資料缺漏算成零或偽造維持率。此版底部評分僅包含價格結構與技術轉折（最高 65 分），尚不包含籌碼和基本面分數。</p></section>
+<section class="card"><h2>底部候選股</h2><div class="toolbar"><input id="search" aria-label="搜尋股票代碼或名稱" placeholder="代碼或名稱，如 2356"><select id="stage" aria-label="篩選股票階段"><option value="">全部狀態</option><option>底部轉強</option><option>底部觀察</option><option>非底部區</option></select><button id="refresh">重新整理</button></div><p class="muted note">手機可在表格內左右滑動查看各欄；股價、評分及回測使用非官方 Yahoo 歷史行情。</p><div class="scroll" tabindex="0" role="region" aria-label="股票資料，可左右捲動"><table><thead><tr><th>股票</th><th>階段</th><th>已觀測評分</th><th>距120日低點</th><th>20日線</th><th>行情日期</th></tr></thead><tbody id="stocks"><tr><td colspan="6">讀取中…</td></tr></tbody></table></div><small>排序不是買進建議。未掃描或缺資料股票不代表沒有底部機會。</small></section>
+<section class="card"><h2>歷史訊號回測（研究用途）</h2><p class="note">每檔股票的回測結果採「當日收盤產生訊號、下一交易日收盤模擬進場」，分別測試 20／60／120 交易日。買賣費用假設各 0.0855%，賣出證交稅 0.3%，未計滑價。非完整市場回測，存在存活者偏差、資料調整及非可成交價等限制。</p><div class="scroll"><table><thead><tr><th>股票</th><th>持有</th><th>樣本數</th><th>勝率</th><th>平均淨報酬</th></tr></thead><tbody id="backtests"></tbody></table></div></section>
+<footer class="note muted">資料來源：<a href="https://openapi.twse.com.tw/" target="_blank" rel="noopener">TWSE OpenAPI</a>、Yahoo Finance 非官方歷史行情。此為免費研究工具，非投資建議。頁面僅展示最新成功產生的檔案，請務必確認更新時間。</footer>
+<script>
+let stocks=[];const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(){let q=$('search').value.trim(),stage=$('stage').value;let rows=stocks.filter(s=>(!q||(s.symbol+s.name).includes(q))&&(!stage||s.stage===stage));$('stocks').innerHTML=rows.length?rows.map(s=>`<tr><td><b>${esc(s.symbol)}</b> ${esc(s.name)}<br><small>${esc(s.market||'上市')}</small></td><td>${esc(s.stage)}</td><td>${esc(s.score_observed)}/${esc(s.score_max)}</td><td>${esc(s.distance_low_pct)}%</td><td>${esc(s.ma20)}</td><td>${esc(s.date)}</td></tr>`).join(''):'<tr><td colspan="6">沒有符合條件的近期資料</td></tr>';let tests=[];for(let s of rows.slice(0,20))for(let h of ['20','60','120']){let b=s.backtest?.[h];if(b)tests.push(`<tr><td>${esc(s.symbol)}</td><td>${h}日</td><td>${esc(b.trades)}</td><td>${b.win_rate_pct===null?'樣本不足':esc(b.win_rate_pct)+'%'}</td><td>${b.avg_return_pct===null?'—':esc(b.avg_return_pct)+'%'}</td></tr>`)}$('backtests').innerHTML=tests.join('')||'<tr><td colspan="5">暫無可用回測</td></tr>'}
+async function load(){
+  $('refresh').disabled=true;
+  try{
+    let r=await fetch('data/radar.json?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw Error('HTTP '+r.status);
+    let d=await r.json();
+    if(!Array.isArray(d.stocks))throw Error('資料格式錯誤');
+    let today=Date.parse(new Date(Date.now()+8*3600000).toISOString().slice(0,10));
+    stocks=d.stocks.filter(s=>{let age=(today-Date.parse(s.date))/86400000;return age>=0&&age<=7});
+    let warnings=[...(d.warnings||[])];
+    if(stocks.length<d.stocks.length)warnings.push('已隱藏超過七個日曆日或日期無效的行情，請檢查更新流程。');
+    let generated=Date.parse(d.generated_at);
+    if(Number.isFinite(generated)&&Date.now()-generated>48*3600000)warnings.push('資料產生時間已超過 48 小時，請核對行情日期；休市期間可能沒有新行情。');
+    $('updated').textContent='資料產生：'+d.generated_at;
+    $('count').textContent=stocks.length;
+    $('fetched').textContent=d.coverage?.updated_today??'—';
+    $('coverage').textContent=`官方上市行情 ${d.coverage?.listed_quotes??0} 檔（${d.quotes_date||'來源未提供日期'}），當日嘗試 ${d.coverage?.attempted_today??0} 檔。${d.coverage?.scope||'輪替掃描，非每日全市場'}`;
+    // No maintenance-ratio feed is integrated in V2. Never render an unverified number.
+    $('ratio').textContent='尚無可驗證資料';
+    $('errors').textContent=[d.market_maintenance_ratio_note,...warnings,'官方融資原始紀錄筆數：'+d.official_margin_records+'（非維持率；僅記錄抓取時間）'].filter(Boolean).join('\n');
+    render();
+  }catch(e){
+    stocks=[];render();$('count').textContent='—';$('fetched').textContent='—';
+    $('updated').textContent='資料載入失敗';
+    $('errors').textContent='尚無有效資料：'+e.message+'。請檢查 GitHub Actions 更新工作流程。';
+  }finally{$('refresh').disabled=false}
+}
+$('search').addEventListener('input',render);$('stage').addEventListener('change',render);$('refresh').addEventListener('click',load);load();
+</script></body></html>
