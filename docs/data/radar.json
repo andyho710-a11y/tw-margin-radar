@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-22T23:35:21+08:00",
+  "generated_at": "2026-10-23T23:25:15+08:00",
   "quotes_source": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL",
-  "quotes_date": "2026-10-21",
+  "quotes_date": "2026-10-22",
   "official_margin_source": "https://openapi.twse.com.tw/v1/exchangeReport/MI_MARGN",
   "official_margin_records": 1302,
   "market_maintenance_ratio": null,
   "market_maintenance_ratio_note": "未取得可驗證的官方全市場整戶維持率，故不顯示數值。",
   "coverage": {
-    "listed_quotes": 1087,
-    "liquid_universe": 644,
+    "listed_quotes": 1081,
+    "liquid_universe": 683,
     "attempted_today": 78,
     "updated_today": 78,
-    "cached_recent_scored": 312,
+    "cached_recent_scored": 327,
     "scope": "上市股票輪替掃描＋上櫃自選力旺；非每日全市場。"
   },
   "warnings": [],
@@ -221,17 +221,17 @@
       "name": "夆典",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 48.5,
+      "last_history_date": "2026-10-22",
+      "score_observed": 50.9,
       "score_max": 65,
-      "distance_low_pct": 5.39,
-      "drop_from_high_pct": -4.87,
-      "ma20": 10.5,
+      "distance_low_pct": 3.43,
+      "drop_from_high_pct": -6.64,
+      "ma20": 10.55,
       "ma60": 10.68,
-      "volume_ratio": 2.0,
+      "volume_ratio": 1.09,
       "stage": "底部轉強",
-      "close": 10.75,
-      "date": "2026-10-19",
+      "close": 10.55,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
@@ -252,46 +252,6 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -6.609,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3047",
-      "name": "訊舟",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 47.7,
-      "score_max": 65,
-      "distance_low_pct": 10.23,
-      "drop_from_high_pct": -14.41,
-      "ma20": 14.51,
-      "ma60": 14.15,
-      "volume_ratio": 0.66,
-      "stage": "底部轉強",
-      "close": 14.55,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 5,
-          "win_rate_pct": 80.0,
-          "avg_return_pct": 1.571,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 3,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -7.394,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 4.895,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -537,6 +497,46 @@
       }
     },
     {
+      "symbol": "3036",
+      "name": "文曄",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 45.7,
+      "score_max": 65,
+      "distance_low_pct": 16.08,
+      "drop_from_high_pct": -29.35,
+      "ma20": 210.85,
+      "ma60": 204.41,
+      "volume_ratio": 0.92,
+      "stage": "底部轉強",
+      "close": 213.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "2505",
       "name": "國揚",
       "market": "上市",
@@ -697,46 +697,6 @@
       }
     },
     {
-      "symbol": "3533",
-      "name": "嘉澤",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 40.8,
-      "score_max": 65,
-      "distance_low_pct": 20.2,
-      "drop_from_high_pct": -36.32,
-      "ma20": 1781.75,
-      "ma60": 1760.0,
-      "volume_ratio": 0.67,
-      "stage": "底部轉強",
-      "close": 1815.0,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 8.533,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 33.748,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 42.992,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
       "symbol": "6191",
       "name": "精成科",
       "market": "上市",
@@ -857,41 +817,41 @@
       }
     },
     {
-      "symbol": "3062",
-      "name": "建漢",
+      "symbol": "3356",
+      "name": "奇偶",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 38.8,
+      "last_history_date": "2026-10-22",
+      "score_observed": 39.6,
       "score_max": 65,
-      "distance_low_pct": 21.8,
-      "drop_from_high_pct": -28.82,
-      "ma20": 22.27,
-      "ma60": 21.1,
-      "volume_ratio": 1.14,
+      "distance_low_pct": 12.85,
+      "drop_from_high_pct": -6.96,
+      "ma20": 69.48,
+      "ma60": 70.26,
+      "volume_ratio": 0.63,
       "stage": "底部轉強",
-      "close": 22.35,
-      "date": "2026-10-19",
+      "close": 71.6,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
-          "trades": 3,
-          "win_rate_pct": 66.67,
-          "avg_return_pct": 1.071,
+          "trades": 4,
+          "win_rate_pct": 25.0,
+          "avg_return_pct": -0.671,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 22.96,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": -1.101,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
           "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 3.054,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -7.445,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -901,17 +861,17 @@
       "name": "華擎",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 38.8,
+      "last_history_date": "2026-10-22",
+      "score_observed": 38.2,
       "score_max": 65,
-      "distance_low_pct": 17.68,
-      "drop_from_high_pct": -18.46,
-      "ma20": 217.53,
-      "ma60": 215.53,
-      "volume_ratio": 0.74,
+      "distance_low_pct": 18.21,
+      "drop_from_high_pct": -18.1,
+      "ma20": 219.55,
+      "ma60": 216.44,
+      "volume_ratio": 0.87,
       "stage": "底部轉強",
-      "close": 223.0,
-      "date": "2026-10-19",
+      "close": 224.0,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
@@ -1057,41 +1017,41 @@
       }
     },
     {
-      "symbol": "3380",
-      "name": "明泰",
+      "symbol": "3545",
+      "name": "敦泰",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 36.5,
+      "last_history_date": "2026-10-22",
+      "score_observed": 36.3,
       "score_max": 65,
-      "distance_low_pct": 23.75,
-      "drop_from_high_pct": -20.96,
-      "ma20": 31.45,
-      "ma60": 29.59,
-      "volume_ratio": 0.49,
+      "distance_low_pct": 19.78,
+      "drop_from_high_pct": -13.47,
+      "ma20": 50.91,
+      "ma60": 50.13,
+      "volume_ratio": 2.47,
       "stage": "底部轉強",
-      "close": 32.05,
-      "date": "2026-10-19",
+      "close": 53.3,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 11.682,
+          "trades": 4,
+          "win_rate_pct": 75.0,
+          "avg_return_pct": 2.871,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -0.848,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 0.156,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
           "trades": 1,
           "win_rate_pct": 100.0,
-          "avg_return_pct": 11.782,
+          "avg_return_pct": 7.594,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -1137,41 +1097,41 @@
       }
     },
     {
-      "symbol": "3356",
-      "name": "奇偶",
+      "symbol": "3416",
+      "name": "融程電",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 32.7,
+      "last_history_date": "2026-10-22",
+      "score_observed": 33.0,
       "score_max": 65,
-      "distance_low_pct": 18.57,
-      "drop_from_high_pct": -5.14,
-      "ma20": 68.97,
-      "ma60": 70.06,
-      "volume_ratio": 0.66,
+      "distance_low_pct": 18.31,
+      "drop_from_high_pct": -4.93,
+      "ma20": 172.3,
+      "ma60": 169.73,
+      "volume_ratio": 0.99,
       "stage": "底部轉強",
-      "close": 73.0,
-      "date": "2026-10-19",
+      "close": 177.5,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
-          "trades": 4,
-          "win_rate_pct": 25.0,
-          "avg_return_pct": -0.671,
+          "trades": 6,
+          "win_rate_pct": 83.33,
+          "avg_return_pct": 5.061,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": -1.101,
+          "trades": 3,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 9.815,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -7.445,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 18.532,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -1257,86 +1217,6 @@
       }
     },
     {
-      "symbol": "3045",
-      "name": "台灣大",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 30.0,
-      "score_max": 65,
-      "distance_low_pct": 20.83,
-      "drop_from_high_pct": -0.38,
-      "ma20": 124.12,
-      "ma60": 117.81,
-      "volume_ratio": 1.63,
-      "stage": "底部轉強",
-      "close": 130.5,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 10,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": -0.969,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 4,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": -1.04,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 2,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": 0.029,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3416",
-      "name": "融程電",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 28.4,
-      "score_max": 65,
-      "distance_low_pct": 22.19,
-      "drop_from_high_pct": -4.93,
-      "ma20": 169.93,
-      "ma60": 169.32,
-      "volume_ratio": 0.57,
-      "stage": "底部轉強",
-      "close": 177.5,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 6,
-          "win_rate_pct": 83.33,
-          "avg_return_pct": 5.061,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 3,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 9.815,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 18.532,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
       "symbol": "2607",
       "name": "榮運",
       "market": "上市",
@@ -1372,6 +1252,46 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -18.551,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3045",
+      "name": "台灣大",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 27.2,
+      "score_max": 65,
+      "distance_low_pct": 23.15,
+      "drop_from_high_pct": 0.0,
+      "ma20": 125.2,
+      "ma60": 118.72,
+      "volume_ratio": 1.15,
+      "stage": "底部轉強",
+      "close": 133.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 10,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": -0.969,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 4,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": -1.04,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 0.029,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -1417,41 +1337,41 @@
       }
     },
     {
-      "symbol": "3413",
-      "name": "京鼎",
+      "symbol": "3058",
+      "name": "立德",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 56.1,
+      "last_history_date": "2026-10-22",
+      "score_observed": 55.8,
       "score_max": 65,
-      "distance_low_pct": 0.73,
-      "drop_from_high_pct": -27.75,
-      "ma20": 286.6,
-      "ma60": 292.23,
-      "volume_ratio": 1.09,
+      "distance_low_pct": 1.01,
+      "drop_from_high_pct": -23.62,
+      "ma20": 8.26,
+      "ma60": 8.19,
+      "volume_ratio": 0.85,
       "stage": "底部觀察",
-      "close": 276.0,
-      "date": "2026-10-19",
+      "close": 8.02,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
-          "trades": 3,
-          "win_rate_pct": 33.33,
-          "avg_return_pct": 0.875,
+          "trades": 5,
+          "win_rate_pct": 40.0,
+          "avg_return_pct": 1.193,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 12.128,
+          "trades": 4,
+          "win_rate_pct": 25.0,
+          "avg_return_pct": -5.478,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 18.427,
+          "trades": 2,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -7.979,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -1577,61 +1497,21 @@
       }
     },
     {
-      "symbol": "3058",
-      "name": "立德",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 53.7,
-      "score_max": 65,
-      "distance_low_pct": 2.77,
-      "drop_from_high_pct": -22.29,
-      "ma20": 8.27,
-      "ma60": 8.21,
-      "volume_ratio": 0.6,
-      "stage": "底部觀察",
-      "close": 8.16,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 5,
-          "win_rate_pct": 40.0,
-          "avg_return_pct": 1.193,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 4,
-          "win_rate_pct": 25.0,
-          "avg_return_pct": -5.478,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 2,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -7.979,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
       "symbol": "3209",
       "name": "全科",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 53.2,
+      "last_history_date": "2026-10-22",
+      "score_observed": 53.9,
       "score_max": 65,
-      "distance_low_pct": 3.16,
-      "drop_from_high_pct": -41.11,
-      "ma20": 46.23,
-      "ma60": 48.69,
-      "volume_ratio": 1.59,
+      "distance_low_pct": 2.6,
+      "drop_from_high_pct": -41.44,
+      "ma20": 46.21,
+      "ma60": 48.22,
+      "volume_ratio": 0.63,
       "stage": "底部觀察",
-      "close": 45.65,
-      "date": "2026-10-19",
+      "close": 45.4,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
@@ -1652,6 +1532,46 @@
           "trades": 1,
           "win_rate_pct": 100.0,
           "avg_return_pct": 98.426,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3011",
+      "name": "今皓",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 53.2,
+      "score_max": 65,
+      "distance_low_pct": 3.2,
+      "drop_from_high_pct": -36.32,
+      "ma20": 9.92,
+      "ma60": 10.42,
+      "volume_ratio": 0.81,
+      "stage": "底部觀察",
+      "close": 9.68,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 15.963,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 13.161,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": -2.155,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -1777,21 +1697,101 @@
       }
     },
     {
+      "symbol": "3060",
+      "name": "銘異",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 50.6,
+      "score_max": 65,
+      "distance_low_pct": 5.31,
+      "drop_from_high_pct": -35.77,
+      "ma20": 27.81,
+      "ma60": 27.45,
+      "volume_ratio": 0.51,
+      "stage": "底部觀察",
+      "close": 26.75,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 12.428,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 5.874,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 53.932,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3030",
+      "name": "德律",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 50.3,
+      "score_max": 65,
+      "distance_low_pct": 5.62,
+      "drop_from_high_pct": -37.31,
+      "ma20": 289.93,
+      "ma60": 284.88,
+      "volume_ratio": 0.83,
+      "stage": "底部觀察",
+      "close": 263.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 2.465,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 41.807,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 99.94,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "3059",
       "name": "華晶科",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 51.7,
+      "last_history_date": "2026-10-22",
+      "score_observed": 50.2,
       "score_max": 65,
-      "distance_low_pct": 4.41,
-      "drop_from_high_pct": -25.78,
-      "ma20": 38.32,
-      "ma60": 38.9,
-      "volume_ratio": 0.94,
+      "distance_low_pct": 5.66,
+      "drop_from_high_pct": -24.9,
+      "ma20": 38.35,
+      "ma60": 38.81,
+      "volume_ratio": 0.83,
       "stage": "底部觀察",
-      "close": 37.85,
-      "date": "2026-10-19",
+      "close": 38.3,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
@@ -1812,46 +1812,6 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -15.801,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3028",
-      "name": "增你強",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 50.1,
-      "score_max": 65,
-      "distance_low_pct": 5.78,
-      "drop_from_high_pct": -28.44,
-      "ma20": 62.38,
-      "ma60": 64.18,
-      "volume_ratio": 2.02,
-      "stage": "底部觀察",
-      "close": 60.4,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 5.798,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 23.614,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 69.71,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -1892,46 +1852,6 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -6.204,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3051",
-      "name": "力特",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 49.9,
-      "score_max": 65,
-      "distance_low_pct": 5.9,
-      "drop_from_high_pct": -30.03,
-      "ma20": 22.36,
-      "ma60": 22.33,
-      "volume_ratio": 0.92,
-      "stage": "底部觀察",
-      "close": 21.55,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 2,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": 20.461,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 5.133,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 41.689,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -2057,6 +1977,46 @@
       }
     },
     {
+      "symbol": "3413",
+      "name": "京鼎",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 49.1,
+      "score_max": 65,
+      "distance_low_pct": 0.73,
+      "drop_from_high_pct": -27.75,
+      "ma20": 285.82,
+      "ma60": 289.51,
+      "volume_ratio": 0.87,
+      "stage": "底部觀察",
+      "close": 276.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 3,
+          "win_rate_pct": 33.33,
+          "avg_return_pct": 0.875,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 12.128,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 18.427,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "2731",
       "name": "雄獅",
       "market": "上市",
@@ -2097,41 +2057,41 @@
       }
     },
     {
-      "symbol": "3060",
-      "name": "銘異",
+      "symbol": "3376",
+      "name": "新日興",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
+      "last_history_date": "2026-10-22",
       "score_observed": 47.6,
       "score_max": 65,
-      "distance_low_pct": 7.87,
-      "drop_from_high_pct": -34.21,
-      "ma20": 27.74,
-      "ma60": 27.55,
-      "volume_ratio": 0.52,
+      "distance_low_pct": 7.81,
+      "drop_from_high_pct": -27.22,
+      "ma20": 174.35,
+      "ma60": 184.32,
+      "volume_ratio": 1.02,
       "stage": "底部觀察",
-      "close": 27.4,
-      "date": "2026-10-19",
+      "close": 172.5,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
           "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 12.428,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -2.958,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": 5.874,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 18.875,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
           "trades": 1,
           "win_rate_pct": 100.0,
-          "avg_return_pct": 53.932,
+          "avg_return_pct": 4.366,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -2172,6 +2132,46 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -19.103,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3015",
+      "name": "全漢",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 47.3,
+      "score_max": 65,
+      "distance_low_pct": 2.25,
+      "drop_from_high_pct": -33.16,
+      "ma20": 52.6,
+      "ma60": 53.2,
+      "volume_ratio": 0.68,
+      "stage": "底部觀察",
+      "close": 50.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 4,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 1.725,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 3,
+          "win_rate_pct": 66.67,
+          "avg_return_pct": -1.199,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -9.437,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -2252,6 +2252,46 @@
           "trades": 1,
           "win_rate_pct": 100.0,
           "avg_return_pct": 6.375,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3528",
+      "name": "安馳",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 46.8,
+      "score_max": 65,
+      "distance_low_pct": 2.69,
+      "drop_from_high_pct": -42.79,
+      "ma20": 84.62,
+      "ma60": 84.59,
+      "volume_ratio": 0.93,
+      "stage": "底部觀察",
+      "close": 80.1,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 6,
+          "win_rate_pct": 66.67,
+          "avg_return_pct": 0.678,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": -1.667,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 6.427,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -2372,6 +2412,46 @@
           "trades": 0,
           "win_rate_pct": null,
           "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3028",
+      "name": "增你強",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 45.6,
+      "score_max": 65,
+      "distance_low_pct": 3.68,
+      "drop_from_high_pct": -29.86,
+      "ma20": 62.03,
+      "ma60": 63.83,
+      "volume_ratio": 0.59,
+      "stage": "底部觀察",
+      "close": 59.2,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 5.798,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 23.614,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 69.71,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -2577,6 +2657,46 @@
       }
     },
     {
+      "symbol": "3051",
+      "name": "力特",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 43.8,
+      "score_max": 65,
+      "distance_low_pct": 5.16,
+      "drop_from_high_pct": -30.52,
+      "ma20": 22.2,
+      "ma60": 22.26,
+      "volume_ratio": 1.15,
+      "stage": "底部觀察",
+      "close": 21.4,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 20.461,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 5.133,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 41.689,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "5284",
       "name": "jpp-KY",
       "market": "上市",
@@ -2621,17 +2741,17 @@
       "name": "鈺德",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
+      "last_history_date": "2026-10-22",
       "score_observed": 43.5,
       "score_max": 65,
       "distance_low_pct": 7.04,
       "drop_from_high_pct": -19.15,
       "ma20": 11.58,
-      "ma60": 11.46,
-      "volume_ratio": 0.71,
+      "ma60": 11.45,
+      "volume_ratio": 0.83,
       "stage": "底部觀察",
       "close": 11.4,
-      "date": "2026-10-19",
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
@@ -2777,46 +2897,6 @@
       }
     },
     {
-      "symbol": "3036",
-      "name": "文曄",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 42.6,
-      "score_max": 65,
-      "distance_low_pct": 11.99,
-      "drop_from_high_pct": -31.84,
-      "ma20": 210.0,
-      "ma60": 204.13,
-      "volume_ratio": 0.73,
-      "stage": "底部觀察",
-      "close": 205.5,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
       "symbol": "6781",
       "name": "AES-KY",
       "market": "上市",
@@ -2892,46 +2972,6 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -3.672,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3135",
-      "name": "凌航",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 42.0,
-      "score_max": 65,
-      "distance_low_pct": 6.66,
-      "drop_from_high_pct": -43.29,
-      "ma20": 155.35,
-      "ma60": 159.24,
-      "volume_ratio": 0.83,
-      "stage": "底部觀察",
-      "close": 141.0,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -3057,6 +3097,46 @@
       }
     },
     {
+      "symbol": "3135",
+      "name": "凌航",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 41.1,
+      "score_max": 65,
+      "distance_low_pct": 7.4,
+      "drop_from_high_pct": -42.49,
+      "ma20": 152.25,
+      "ma60": 158.9,
+      "volume_ratio": 1.18,
+      "stage": "底部觀察",
+      "close": 143.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "3708",
       "name": "上緯投控",
       "market": "上市",
@@ -3092,46 +3172,6 @@
           "trades": 1,
           "win_rate_pct": 0.0,
           "avg_return_pct": -5.425,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3376",
-      "name": "新日興",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 40.2,
-      "score_max": 65,
-      "distance_low_pct": 8.13,
-      "drop_from_high_pct": -27.0,
-      "ma20": 174.25,
-      "ma60": 184.79,
-      "volume_ratio": 1.64,
-      "stage": "底部觀察",
-      "close": 173.0,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 2,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -2.958,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 18.875,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 4.366,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -3457,6 +3497,46 @@
       }
     },
     {
+      "symbol": "3047",
+      "name": "訊舟",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 39.7,
+      "score_max": 65,
+      "distance_low_pct": 10.23,
+      "drop_from_high_pct": -14.41,
+      "ma20": 14.56,
+      "ma60": 14.14,
+      "volume_ratio": 0.79,
+      "stage": "底部觀察",
+      "close": 14.55,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 5,
+          "win_rate_pct": 80.0,
+          "avg_return_pct": 1.571,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 3,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -7.394,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 4.895,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "4934",
       "name": "太極",
       "market": "上市",
@@ -3537,6 +3617,46 @@
       }
     },
     {
+      "symbol": "3019",
+      "name": "亞光",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 39.4,
+      "score_max": 65,
+      "distance_low_pct": 8.82,
+      "drop_from_high_pct": -21.04,
+      "ma20": 135.82,
+      "ma60": 136.11,
+      "volume_ratio": 0.7,
+      "stage": "底部觀察",
+      "close": 129.5,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 4,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 4.46,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -10.348,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 13.383,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "6451",
       "name": "訊芯-KY",
       "market": "上市",
@@ -3572,6 +3692,46 @@
           "trades": 1,
           "win_rate_pct": 100.0,
           "avg_return_pct": 8.788,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3041",
+      "name": "揚智",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 39.1,
+      "score_max": 65,
+      "distance_low_pct": 14.89,
+      "drop_from_high_pct": -25.8,
+      "ma20": 24.08,
+      "ma60": 23.12,
+      "volume_ratio": 0.59,
+      "stage": "底部觀察",
+      "close": 23.15,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 3,
+          "win_rate_pct": 66.67,
+          "avg_return_pct": -4.045,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -18.014,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -29.105,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -3737,46 +3897,6 @@
       }
     },
     {
-      "symbol": "3030",
-      "name": "德律",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 38.2,
-      "score_max": 65,
-      "distance_low_pct": 15.66,
-      "drop_from_high_pct": -31.35,
-      "ma20": 288.9,
-      "ma60": 285.97,
-      "volume_ratio": 0.9,
-      "stage": "底部觀察",
-      "close": 288.0,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 2.465,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 41.807,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 99.94,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
       "symbol": "5531",
       "name": "鄉林",
       "market": "上市",
@@ -3857,6 +3977,126 @@
       }
     },
     {
+      "symbol": "3305",
+      "name": "昇貿",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 37.8,
+      "score_max": 65,
+      "distance_low_pct": 16.02,
+      "drop_from_high_pct": -37.31,
+      "ma20": 107.88,
+      "ma60": 107.45,
+      "volume_ratio": 1.78,
+      "stage": "底部觀察",
+      "close": 105.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 0,
+          "win_rate_pct": null,
+          "avg_return_pct": null,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3033",
+      "name": "威健",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 37.4,
+      "score_max": 65,
+      "distance_low_pct": 16.36,
+      "drop_from_high_pct": -25.18,
+      "ma20": 42.19,
+      "ma60": 44.05,
+      "volume_ratio": 0.53,
+      "stage": "底部觀察",
+      "close": 41.6,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 4,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": -0.308,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 4.995,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 12.708,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3504",
+      "name": "揚明光",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 37.4,
+      "score_max": 65,
+      "distance_low_pct": 10.47,
+      "drop_from_high_pct": -27.25,
+      "ma20": 79.55,
+      "ma60": 79.48,
+      "volume_ratio": 1.23,
+      "stage": "底部觀察",
+      "close": 68.6,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 3,
+          "win_rate_pct": 66.67,
+          "avg_return_pct": 7.271,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 11.12,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 37.129,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "6541",
       "name": "泰福-KY",
       "market": "上市",
@@ -3897,41 +4137,41 @@
       }
     },
     {
-      "symbol": "3041",
-      "name": "揚智",
+      "symbol": "3024",
+      "name": "憶聲",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 36.8,
+      "last_history_date": "2026-10-22",
+      "score_observed": 37.3,
       "score_max": 65,
-      "distance_low_pct": 16.87,
-      "drop_from_high_pct": -24.52,
-      "ma20": 24.02,
-      "ma60": 23.13,
-      "volume_ratio": 0.46,
+      "distance_low_pct": 10.55,
+      "drop_from_high_pct": -26.4,
+      "ma20": 13.87,
+      "ma60": 13.82,
+      "volume_ratio": 0.53,
       "stage": "底部觀察",
-      "close": 23.55,
-      "date": "2026-10-19",
+      "close": 13.1,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
-          "trades": 3,
-          "win_rate_pct": 66.67,
-          "avg_return_pct": -4.045,
+          "trades": 5,
+          "win_rate_pct": 60.0,
+          "avg_return_pct": 1.244,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
           "trades": 2,
           "win_rate_pct": 0.0,
-          "avg_return_pct": -18.014,
+          "avg_return_pct": -12.61,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -29.105,
+          "trades": 2,
+          "win_rate_pct": 50.0,
+          "avg_return_pct": 6.402,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -4097,46 +4337,6 @@
       }
     },
     {
-      "symbol": "3545",
-      "name": "敦泰",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 36.1,
-      "score_max": 65,
-      "distance_low_pct": 13.26,
-      "drop_from_high_pct": -18.18,
-      "ma20": 50.68,
-      "ma60": 49.93,
-      "volume_ratio": 0.76,
-      "stage": "底部觀察",
-      "close": 50.4,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 3,
-          "win_rate_pct": 66.67,
-          "avg_return_pct": 2.635,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": 0.156,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 7.594,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
       "symbol": "2836",
       "name": "高雄銀",
       "market": "上市",
@@ -4172,46 +4372,6 @@
           "trades": 2,
           "win_rate_pct": 50.0,
           "avg_return_pct": -0.004,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3033",
-      "name": "威健",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 35.6,
-      "score_max": 65,
-      "distance_low_pct": 17.81,
-      "drop_from_high_pct": -24.46,
-      "ma20": 42.18,
-      "ma60": 44.45,
-      "volume_ratio": 1.16,
-      "stage": "底部觀察",
-      "close": 42.0,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 4,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": -0.308,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 4.995,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 12.708,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -4292,46 +4452,6 @@
           "trades": 0,
           "win_rate_pct": null,
           "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3338",
-      "name": "泰碩",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 35.5,
-      "score_max": 65,
-      "distance_low_pct": 17.88,
-      "drop_from_high_pct": -27.17,
-      "ma20": 67.78,
-      "ma60": 64.94,
-      "volume_ratio": 0.63,
-      "stage": "底部觀察",
-      "close": 64.6,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 3,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 7.935,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 23.723,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 52.714,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -4537,161 +4657,81 @@
       }
     },
     {
-      "symbol": "3048",
-      "name": "益登",
+      "symbol": "3056",
+      "name": "富華新",
       "market": "上市",
       "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
+      "last_history_date": "2026-10-22",
+      "score_observed": 35.0,
+      "score_max": 65,
+      "distance_low_pct": 0.0,
+      "drop_from_high_pct": -14.66,
+      "ma20": 13.67,
+      "ma60": 13.93,
+      "volume_ratio": 1.17,
+      "stage": "底部觀察",
+      "close": 13.1,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 4,
+          "win_rate_pct": 25.0,
+          "avg_return_pct": -4.694,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -11.899,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -30.06,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
+      "symbol": "3380",
+      "name": "明泰",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
       "score_observed": 35,
       "score_max": 65,
-      "distance_low_pct": 41.81,
-      "drop_from_high_pct": -28.06,
-      "ma20": 53.11,
-      "ma60": 53.48,
-      "volume_ratio": 0.65,
+      "distance_low_pct": 25.1,
+      "drop_from_high_pct": -20.1,
+      "ma20": 31.63,
+      "ma60": 29.7,
+      "volume_ratio": 0.95,
       "stage": "非底部區",
-      "close": 54.1,
-      "date": "2026-10-19",
+      "close": 32.4,
+      "date": "2026-10-22",
       "backtest": {
         "20": {
           "hold_days": 20,
           "trades": 2,
           "win_rate_pct": 100.0,
-          "avg_return_pct": 46.301,
+          "avg_return_pct": 11.682,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "60": {
           "hold_days": 60,
           "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 85.109,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -0.848,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         },
         "120": {
           "hold_days": 120,
           "trades": 1,
           "win_rate_pct": 100.0,
-          "avg_return_pct": 35.21,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3149",
-      "name": "正達",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 35,
-      "score_max": 65,
-      "distance_low_pct": 69.82,
-      "drop_from_high_pct": -29.47,
-      "ma20": 71.58,
-      "ma60": 67.05,
-      "volume_ratio": 0.58,
-      "stage": "非底部區",
-      "close": 73.7,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3305",
-      "name": "昇貿",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 35,
-      "score_max": 65,
-      "distance_low_pct": 25.97,
-      "drop_from_high_pct": -31.94,
-      "ma20": 106.65,
-      "ma60": 107.45,
-      "volume_ratio": 13.51,
-      "stage": "非底部區",
-      "close": 114.0,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3535",
-      "name": "晶彩科",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 35,
-      "score_max": 65,
-      "distance_low_pct": 39.37,
-      "drop_from_high_pct": -32.85,
-      "ma20": 91.64,
-      "ma60": 88.07,
-      "volume_ratio": 10.92,
-      "stage": "非底部區",
-      "close": 97.7,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
+          "avg_return_pct": 11.782,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -5337,6 +5377,46 @@
       }
     },
     {
+      "symbol": "3533",
+      "name": "嘉澤",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 34.4,
+      "score_max": 65,
+      "distance_low_pct": 18.87,
+      "drop_from_high_pct": -37.02,
+      "ma20": 1816.25,
+      "ma60": 1751.0,
+      "volume_ratio": 0.37,
+      "stage": "底部觀察",
+      "close": 1795.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 8.533,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 33.748,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 2,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 42.992,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "2476",
       "name": "鉅祥",
       "market": "上市",
@@ -5377,6 +5457,46 @@
       }
     },
     {
+      "symbol": "3023",
+      "name": "信邦",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 34.0,
+      "score_max": 65,
+      "distance_low_pct": 9.16,
+      "drop_from_high_pct": -12.35,
+      "ma20": 314.35,
+      "ma60": 315.11,
+      "volume_ratio": 1.31,
+      "stage": "底部觀察",
+      "close": 298.0,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 1,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -11.555,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 1,
+          "win_rate_pct": 0.0,
+          "avg_return_pct": -0.697,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 41.377,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "3563",
       "name": "牧德",
       "market": "上市",
@@ -5412,86 +5532,6 @@
           "trades": 1,
           "win_rate_pct": 100.0,
           "avg_return_pct": 32.58,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3056",
-      "name": "富華新",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 33.6,
-      "score_max": 65,
-      "distance_low_pct": 1.14,
-      "drop_from_high_pct": -13.03,
-      "ma20": 13.85,
-      "ma60": 13.97,
-      "volume_ratio": 2.24,
-      "stage": "底部觀察",
-      "close": 13.35,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 4,
-          "win_rate_pct": 25.0,
-          "avg_return_pct": -4.694,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -11.899,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -30.06,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "3138",
-      "name": "耀登",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-19",
-      "score_observed": 33.5,
-      "score_max": 65,
-      "distance_low_pct": 19.56,
-      "drop_from_high_pct": -44.59,
-      "ma20": 100.78,
-      "ma60": 96.36,
-      "volume_ratio": 0.47,
-      "stage": "底部觀察",
-      "close": 97.8,
-      "date": "2026-10-19",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 0.235,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 0,
-          "win_rate_pct": null,
-          "avg_return_pct": null,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
@@ -5817,6 +5857,46 @@
       }
     },
     {
+      "symbol": "3062",
+      "name": "建漢",
+      "market": "上市",
+      "history_source": "Yahoo Finance chart (非官方)",
+      "last_history_date": "2026-10-22",
+      "score_observed": 30.8,
+      "score_max": 65,
+      "distance_low_pct": 21.8,
+      "drop_from_high_pct": -28.82,
+      "ma20": 22.4,
+      "ma60": 21.18,
+      "volume_ratio": 0.6,
+      "stage": "非底部區",
+      "close": 22.35,
+      "date": "2026-10-22",
+      "backtest": {
+        "20": {
+          "hold_days": 20,
+          "trades": 3,
+          "win_rate_pct": 66.67,
+          "avg_return_pct": 1.071,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "60": {
+          "hold_days": 60,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 22.96,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        },
+        "120": {
+          "hold_days": 120,
+          "trades": 1,
+          "win_rate_pct": 100.0,
+          "avg_return_pct": 3.054,
+          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
+        }
+      }
+    },
+    {
       "symbol": "2812",
       "name": "台中銀",
       "market": "上市",
@@ -5932,86 +6012,6 @@
           "trades": 2,
           "win_rate_pct": 0.0,
           "avg_return_pct": -4.064,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "2485",
-      "name": "兆赫",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-21",
-      "score_observed": 30.4,
-      "score_max": 65,
-      "distance_low_pct": 22.15,
-      "drop_from_high_pct": -48.24,
-      "ma20": 40.68,
-      "ma60": 40.6,
-      "volume_ratio": 1.17,
-      "stage": "非底部區",
-      "close": 39.7,
-      "date": "2026-10-21",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 14.907,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 19.179,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 100.0,
-          "avg_return_pct": 158.435,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        }
-      }
-    },
-    {
-      "symbol": "6605",
-      "name": "帝寶",
-      "market": "上市",
-      "history_source": "Yahoo Finance chart (非官方)",
-      "last_history_date": "2026-10-22",
-      "score_observed": 30.4,
-      "score_max": 65,
-      "distance_low_pct": 8.03,
-      "drop_from_high_pct": -8.81,
-      "ma20": 136.62,
-      "ma60": 137.0,
-      "volume_ratio": 1.27,
-      "stage": "底部觀察",
-      "close": 134.5,
-      "date": "2026-10-22",
-      "backtest": {
-        "20": {
-          "hold_days": 20,
-          "trades": 7,
-          "win_rate_pct": 57.14,
-          "avg_return_pct": 1.136,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "60": {
-          "hold_days": 60,
-          "trades": 2,
-          "win_rate_pct": 50.0,
-          "avg_return_pct": 11.239,
-          "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
-        },
-        "120": {
-          "hold_days": 120,
-          "trades": 1,
-          "win_rate_pct": 0.0,
-          "avg_return_pct": -7.789,
           "note": "訊號收盤後，次日收盤價模擬進場；非實際可保證成交價。含假設費稅，不含滑價。"
         }
       }
