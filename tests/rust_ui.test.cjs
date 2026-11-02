@@ -46,7 +46,7 @@ test('failed refresh clears previous ranking and source metadata',async()=>{
   assert.equal(p.$('stocks').innerHTML,'');assert.equal(p.$('sources').children.length,0);assert.equal(p.$('date').textContent,'—');assert.match(p.$('status').textContent,/尚無可用/);
 });
 test('partial or future reports are rejected',async()=>{
-  for(const change of [d=>d.candidates.pop(),d=>d.generated_at='2099-01-01T00:00:00Z']){
+  for(const change of [d=>d.candidates.pop(),d=>d.generated_at='2099-01-01T00:00:00Z',d=>d.date='2026-02-30',d=>d.data_observed_at='2099-01-01T00:00:00Z']){
     const d=report();change(d);const p=await page(async()=>({ok:true,json:async()=>d}));assert.equal(p.$('stocks').innerHTML,'');assert.match(p.$('status').textContent,/尚無可用/);
   }
 });

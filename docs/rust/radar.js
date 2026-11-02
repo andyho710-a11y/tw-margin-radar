@@ -17,8 +17,8 @@ async function load(){
     const d=await response.json();
     if(d.schema_version!==1||!/^\d{4}-\d{2}-\d{2}$/.test(d.date)||!Array.isArray(d.candidates)||d.candidates.length!==10)throw Error("完整報告格式不符");
     if(!d.candidates.every(s=>s.breakdown&&Number.isInteger(s.score)&&s.score>=0&&s.score<=100))throw Error("候選評分格式不符");
-    const generated=Date.parse(d.generated_at), observed=Date.parse(d.data_observed_at);
-    if(!Number.isFinite(generated)||!Number.isFinite(observed)||generated>Date.now()+300000||Date.parse(d.date)>Date.now()+8*3600000)throw Error("資料時間無效或來自未來");
+    const generated=Date.parse(d.generated_at), observed=Date.parse(d.data_observed_at), session=Date.parse(d.date+"T00:00:00+08:00");
+    if(!Number.isFinite(session)||new Date(session+8*3600000).toISOString().slice(0,10)!==d.date||!Number.isFinite(generated)||!Number.isFinite(observed)||generated>Date.now()+300000||observed>generated||session>Date.now())throw Error("資料時間無效或來自未來");
     stocks=d.candidates;
     $("date").textContent=d.date;
     $("coverage").textContent=`${n(d.scored_count)} / ${n(d.quote_count)}`;
