@@ -1,0 +1,43 @@
+name: Rust radar review checks
+on:
+  pull_request:
+    paths: ['rust-radar/**', 'config/**', 'docs/rust/**', 'ops/**', 'tests/test_rust_ops.py', '.github/workflows/rust-validate.yml']
+  push:
+    branches: ['codex/rust-margin-radar']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rust-review-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Rust for review only
+        run: rustup toolchain install 1.99.1 --profile minimal --component clippy,rustfmt
+      - name: Format, test and static checks
+        run: |
+          cargo +1.99.1 fmt --manifest-path rust-radar/Cargo.toml --check
+          cargo +1.99.1 test --manifest-path rust-radar/Cargo.toml --locked
+          cargo +1.99.1 clippy --manifest-path rust-radar/Cargo.toml --locked --all-targets -- -D warnings
+          python3 -m unittest discover -s tests -p test_rust_ops.py -v
+          node --check docs/rust/radar.js
+      - name: Build a static Linux release for later review (no deployment)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq musl-tools
+          rustup target add --toolchain 1.99.1 x86_64-unknown-linux-musl
+          cargo +1.99.1 build --manifest-path rust-radar/Cargo.toml --locked --release --target x86_64-unknown-linux-musl
+          sha256sum rust-radar/target/x86_64-unknown-linux-musl/release/tw-margin-radar > release-sha256.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rust-radar-review-build
+          path: |
+            rust-radar/target/x86_64-unknown-linux-musl/release/tw-margin-radar
+            release-sha256.txt
+          retention-days: 14

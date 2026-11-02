@@ -1,5 +1,7 @@
 # 台股底部與融資風險雷達 V2（免費研究版）
 
+> Rust 開發候選版位於 `rust-radar/`，獨立手機頁面為 `docs/rust/`。本分支僅供審查，未取代 V2、未啟用排程或部署。請先閱讀 [Rust 使用與模型說明](development/rust-radar.md)、[VM 評估](development/vm-assessment.md) 與 [部署維護手冊](development/deployment.md)。
+
 ## 現階段確實具備
 - 手機友善 GitHub Pages 網站；GitHub Actions 週一至週五台灣時間 18:40 自動執行。
 - TWSE 官方上市當日報價及融資餘額 **原始資料** 擷取，附來源、抓取時間、失敗警告。

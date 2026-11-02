@@ -1,0 +1,38 @@
+[Unit]
+Description=Taiwan margin radar isolated batch (%i)
+Wants=network-online.target
+After=network-online.target
+OnFailure=tw-margin-radar-alert@%i.service
+
+[Service]
+Type=oneshot
+User=tw-radar
+Group=tw-radar
+WorkingDirectory=/opt/tw-margin-radar
+ExecStart=/opt/tw-margin-radar/bin/tw-margin-radar --state /var/lib/tw-margin-radar --public /var/www/tw-margin-radar/data --config /etc/tw-margin-radar/radar.json %i
+StateDirectory=tw-margin-radar
+UMask=0027
+TimeoutStartSec=15min
+CPUQuota=20%
+MemoryHigh=128M
+MemoryMax=192M
+TasksMax=24
+Nice=15
+IOSchedulingClass=idle
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+IPAddressDeny=169.254.0.0/16
+IPAddressDeny=fd20:ce::254/128
+ReadWritePaths=/var/lib/tw-margin-radar /var/www/tw-margin-radar/data
+StandardOutput=journal
+StandardError=journal

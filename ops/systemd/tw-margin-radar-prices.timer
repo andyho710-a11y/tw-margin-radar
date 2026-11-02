@@ -1,0 +1,9 @@
+[Unit]
+Description=Stage Taiwan closing prices at 16:10 Asia/Taipei
+[Timer]
+OnCalendar=Mon..Fri *-*-* 16:10:00 Asia/Taipei
+Persistent=true
+RandomizedDelaySec=60
+Unit=tw-margin-radar@prices.service
+[Install]
+WantedBy=timers.target

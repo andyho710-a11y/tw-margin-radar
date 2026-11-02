@@ -1,0 +1,8 @@
+[Unit]
+Description=Check Taiwan report freshness after final retry
+[Timer]
+OnCalendar=Mon..Fri *-*-* 23:40:00 Asia/Taipei
+Persistent=true
+Unit=tw-margin-radar@health.service
+[Install]
+WantedBy=timers.target

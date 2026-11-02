@@ -1,0 +1,13 @@
+# Review and activate only after approval. A separate hostname and static root.
+# TLS must be provisioned by the operator before exposing this server publicly.
+server {
+    listen 127.0.0.1:8088;
+    server_name localhost;
+    root /var/www/tw-margin-radar;
+    autoindex off;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'" always;
+    location / { try_files $uri $uri/ =404; }
+    location = /data/latest.json { add_header Cache-Control "no-store"; }
+    location ~ /\. { deny all; }
+}

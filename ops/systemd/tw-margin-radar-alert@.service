@@ -1,0 +1,18 @@
+[Unit]
+Description=Record radar failure and optional dedicated alert (%i)
+[Service]
+Type=oneshot
+User=tw-radar
+Group=tw-radar
+ExecStart=/usr/bin/python3 /opt/tw-margin-radar/ops/alert.py %i
+EnvironmentFile=-/etc/tw-margin-radar/alert.env
+StateDirectory=tw-margin-radar
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+MemoryMax=48M
+CPUQuota=5%
+ReadWritePaths=/var/lib/tw-margin-radar
+IPAddressDeny=169.254.0.0/16
+IPAddressDeny=fd20:ce::254/128

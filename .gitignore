@@ -2,3 +2,7 @@ __pycache__/
 .pytest_cache/
 *.pyc
 .venv/
+rust-radar/target/
+var/
+preview/
+docs/rust/data/latest.json

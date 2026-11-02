@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>台股融資風險與起漲雷達</title>
+  <link rel="stylesheet" href="radar.css">
+  <script src="radar.js" defer></script>
+</head>
+<body>
+  <header><p class="eyebrow">TWSE × TPEX / RUST</p><h1>融資風險與起漲雷達</h1><p class="muted">用可追溯的官方資料，觀察去槓桿後的價格轉折。</p></header>
+  <div id="status" role="status" class="notice">正在讀取最新完整報告…</div>
+  <section class="summary" aria-label="報告摘要">
+    <article><span>完整資料交易日</span><strong id="date">—</strong></article>
+    <article><span>可評分 / 報價股數</span><strong id="coverage">—</strong></article>
+    <article><span>整戶擔保維持率</span><strong class="small">尚無可驗證資料</strong></article>
+  </section>
+  <section class="panel"><div class="heading"><div><p class="eyebrow">DAILY WATCH</p><h2>前十名候選股</h2></div><button id="refresh">重新整理</button></div>
+    <p id="scope" class="muted">等待完整資料。高排名不代表符合買進條件。</p>
+    <div class="filters"><input id="search" type="search" aria-label="搜尋代碼或名稱" placeholder="搜尋代碼或名稱"><select id="stage" aria-label="篩選訊號"><option value="">全部訊號</option><option>去槓桿後轉強</option><option>融資風險</option><option>觀察</option></select></div>
+    <div id="stocks" class="stocks"></div>
+    <p id="empty" hidden>沒有符合篩選條件的候選股。</p>
+  </section>
+  <section class="panel"><h2>資料與評分依據</h2><p>每檔展開後可查看加扣分。融資餘額以張為單位，增減＝當日餘額－前日餘額；不把缺資料當成零。</p><p>上市「使用率」為今日餘額／次一營業日限額的代理值；上櫃為資餘額／資限額。這些數字皆非整戶擔保維持率。</p><p>行情與融資必須對齊同一交易日，固定名單十檔皆需連續 21 交易日可評分，才產出完整報告。API 未公布、缺交易日或名單缺漏時保留上一份完整報告。</p><p>歷史補抓會標明實際取得時間；研究回測使用當時日期以前的資料產生訊號，假設次交易日收盤進場。未還原除權息與存活者偏差；回測不是獲利證明。</p><div id="sources"></div><p id="generated" class="muted"></p></section>
+  <footer>研究工具，非投資建議。<a href="../">既有 V2 頁面</a> · <a href="https://www.twse.com.tw/">證交所</a> · <a href="https://www.tpex.org.tw/">櫃買中心</a></footer>
+</body></html>

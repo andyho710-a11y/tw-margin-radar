@@ -1,0 +1,12 @@
+[Unit]
+Description=Check Taiwan financing data and retry in evening
+[Timer]
+OnCalendar=Mon..Fri *-*-* 18:40:00 Asia/Taipei
+OnCalendar=Mon..Fri *-*-* 20:10:00 Asia/Taipei
+OnCalendar=Mon..Fri *-*-* 22:10:00 Asia/Taipei
+OnCalendar=Mon..Fri *-*-* 23:10:00 Asia/Taipei
+Persistent=true
+RandomizedDelaySec=60
+Unit=tw-margin-radar@update.service
+[Install]
+WantedBy=timers.target

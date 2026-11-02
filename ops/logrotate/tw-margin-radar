@@ -1,0 +1,9 @@
+/var/lib/tw-margin-radar/events.jsonl {
+    weekly
+    rotate 12
+    compress
+    missingok
+    notifempty
+    su tw-radar tw-radar
+    create 0640 tw-radar tw-radar
+}
