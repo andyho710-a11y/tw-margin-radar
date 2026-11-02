@@ -27,6 +27,7 @@ jobs:
           cargo +1.99.1 clippy --manifest-path rust-radar/Cargo.toml --locked --all-targets -- -D warnings
           python3 -m unittest discover -s tests -p test_rust_ops.py -v
           node --check docs/rust/radar.js
+          node --test tests/rust_ui.test.cjs
       - name: Build a static Linux release for later review (no deployment)
         run: |
           sudo apt-get update -qq

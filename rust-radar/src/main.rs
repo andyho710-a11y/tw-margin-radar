@@ -157,6 +157,16 @@ fn status(state: &Path, phase: &str, date: Option<NaiveDate>, message: &str) -> 
 fn run(cli: &Cli) -> Result<()> {
     let _lock = store::lock(&cli.state)?;
     let config = config(&cli.config)?;
+    // Preserve host headroom. Never consume the trading VM's last free space.
+    if matches!(
+        cli.command,
+        Command::Prices | Command::Update | Command::Import { .. }
+    ) {
+        ensure!(
+            fs2::available_space(&cli.state)? >= 1_073_741_824,
+            "less than 1 GiB free disk; collection refused"
+        );
+    }
     let now = taipei_now();
     let today = now.date_naive();
     match &cli.command {

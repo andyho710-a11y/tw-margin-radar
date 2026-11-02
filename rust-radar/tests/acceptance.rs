@@ -244,6 +244,58 @@ fn holidays_and_reopening_milestones_are_distinct() {
         1
     );
 }
+
+#[test]
+fn official_compensatory_holiday_and_settlement_only_day_are_closed() {
+    let v = json!({"queryYear":2026,"data":[["2026-10-26","紀念日","於星期一補假。"],["2026-02-12","市場無交易，僅辦理結算交割作業",""]]});
+    assert!(sources::holiday(&v, NaiveDate::from_ymd_opt(2026, 10, 26).unwrap()).unwrap());
+    assert!(sources::holiday(&v, NaiveDate::from_ymd_opt(2026, 2, 12).unwrap()).unwrap());
+}
+
+#[test]
+fn http_failure_retries_then_recovers_without_publishing() {
+    use std::{
+        io::{Read, Write},
+        net::TcpListener,
+        thread,
+    };
+    let server = TcpListener::bind("127.0.0.1:0").unwrap();
+    let url = format!("http://{}/fixture", server.local_addr().unwrap());
+    let worker = thread::spawn(move || {
+        for attempt in 0..2 {
+            let (mut stream, _) = server.accept().unwrap();
+            let mut buffer = [0_u8; 4096];
+            let _ = stream.read(&mut buffer).unwrap();
+            if attempt == 0 {
+                stream.write_all(b"HTTP/1.1 503 Service Unavailable\r\nContent-Length: 0\r\nConnection: close\r\n\r\n").unwrap();
+            } else {
+                stream
+                    .write_all(
+                        b"HTTP/1.1 200 OK\r\nContent-Length: 2\r\nConnection: close\r\n\r\n{}",
+                    )
+                    .unwrap();
+            }
+        }
+    });
+    assert_eq!(
+        sources::fetch(&sources::client().unwrap(), &url).unwrap(),
+        b"{}"
+    );
+    worker.join().unwrap();
+}
+
+#[test]
+fn daily_window_avoids_loading_all_retained_history_or_future_dates() {
+    let dir = tempfile::tempdir().unwrap();
+    let h = series(35);
+    for s in &h {
+        store::save_snapshot(dir.path(), s).unwrap();
+    }
+    let window = store::history_window(dir.path(), h[25].date, scoring::WINDOW).unwrap();
+    assert_eq!(window.len(), 21);
+    assert_eq!(window[0].date, h[5].date);
+    assert_eq!(window[20].date, h[25].date);
+}
 #[test]
 fn os_lock_recovers_after_owner_exits() {
     let t = tempfile::tempdir().unwrap();

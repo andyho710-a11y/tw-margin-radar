@@ -258,8 +258,11 @@ pub fn assemble(
                 .get(&format!("{prefix}_margin"))
                 .context("missing margin")?,
         )?;
-        let margins = parse_margin(&m, market, date)?;
-        for (k, quote) in parse_quotes(&q, market, date)? {
+        let margins = parse_margin(&m, market, date)
+            .with_context(|| format!("{market} margin unavailable/invalid for {date}"))?;
+        for (k, quote) in parse_quotes(&q, market, date)
+            .with_context(|| format!("{market} quotes unavailable/invalid for {date}"))?
+        {
             stocks.insert(
                 k.clone(),
                 Observation {
