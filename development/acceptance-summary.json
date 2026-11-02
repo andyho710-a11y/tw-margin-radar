@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-22",
+  "sessions": 31,
+  "first": "2026-09-07",
+  "last": "2026-10-22",
+  "quote_count": 1949,
+  "margin_matched_count": 1839,
+  "scored_count": 10,
+  "candidates": [
+    {
+      "symbol": "6510",
+      "market": "TPEX",
+      "score": 60,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "3017",
+      "market": "TWSE",
+      "score": 60,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "3533",
+      "market": "TWSE",
+      "score": 60,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "5269",
+      "market": "TWSE",
+      "score": 60,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "3529",
+      "market": "TPEX",
+      "score": 40,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "3008",
+      "market": "TWSE",
+      "score": 30,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "5274",
+      "market": "TPEX",
+      "score": 10,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "2454",
+      "market": "TWSE",
+      "score": 10,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "3661",
+      "market": "TWSE",
+      "score": 5,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "2330",
+      "market": "TWSE",
+      "score": 0,
+      "stage": "融資風險"
+    }
+  ],
+  "backtest_trades": 2,
+  "backtest_avg_return_pct": -3.4937740155920602,
+  "backtest_skipped_reports": 0,
+  "raw_bytes": 70411738,
+  "normalized_bytes": 22570801,
+  "report_sha256": "6847650867bd715120b4ce5233a2c6263d125c2f6fccb399c409fd2b8ffff697",
+  "all_market": {
+    "date": "2026-10-22",
+    "quote_count": 1949,
+    "margin_matched_count": 1839,
+    "scored_count": 1733,
+    "excluded_count": 216,
+    "candidate_count": 10
+  },
+  "note": "Historical research snapshot only. 2026-10-23 unavailable from both official markets; refused incomplete import. Not a current market report."
+}
