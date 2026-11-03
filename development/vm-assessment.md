@@ -1,6 +1,6 @@
 # VM 唯讀容量與隔離評估
 
-量測時間：台灣 2026-11-03 00:19（UTC 2026-11-02 16:19）。目標 instance 數字ID與既有固定 VM 一致。此次只查 Compute metadata 與執行 SSH stdin 的 `ops/readonly_probe.py`；未建立遠端檔案、未安裝任何套件、未控制 PM2、未讀 API 金鑰、未呼叫交易或通知 API。
+量測時間：台灣 2026-11-03 00:19（UTC 2026-11-02 16:19）。目標 instance 數字ID與既有固定 VM 一致。初次容量量測只查 Compute metadata 與執行 SSH stdin 的 `ops/readonly_probe.py`；未建立遠端檔案、未安裝任何套件、未控制 PM2、未讀 API 金鑰、未呼叫交易或通知 API。
 
 | 項目 | 唯讀結果 |
 |---|---|
@@ -36,3 +36,7 @@
 每月按20個交易日、每日四張官方完整報表估資料量，再用實測檔案大小計算；勿用API檔數直接假設空間無上限。部署前以[Google Cloud定價計算機](https://cloud.google.com/products/calculator)核價；此次未建立、升級或購買任何資源。
 
 本地31個交易日實測raw約70.4MB（包含失敗查詢）、正規化歷史22.6MB，合計約3MB/交易日；按250交易日粗估每年約0.75GB，另加日誌/報告/備份。以現有3.94GiB餘裕仍須設保留門檻、外部備份與定期容量檢查，不能無限堆積。程式在收集前已加入磁碟至少1GiB可用的拒收閘門。
+
+## 後續隔離驗收
+
+2026-11-03後續已完成一次性DynamicUser隔離驗收，另見`acceptance.md`及`vm-isolation-evidence.json`。這次驗收有建立並清除暫時systemd單元與專用/run resolver，未安裝正式雷達服務、修改主機DNS或啟用排程；不能將本段與初次純唯讀量測混為同一證據層級。正式共用仍須使用者部署審核。

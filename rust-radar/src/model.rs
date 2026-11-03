@@ -2,6 +2,11 @@ use chrono::{DateTime, NaiveDate, Utc};
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 
+// User-approved fixed universe. Updating it requires an explicit reviewed change.
+pub const FIXED_WATCHLIST: [&str; 10] = [
+    "5274", "2059", "3443", "3653", "3008", "7769", "6515", "2383", "6223", "2454",
+];
+
 #[derive(Clone, Debug, Deserialize, Serialize, PartialEq)]
 pub struct Quote {
     pub market: String,
@@ -55,20 +60,41 @@ pub struct Snapshot {
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
 pub struct Config {
     pub watchlist: Vec<String>,
     pub all_market: bool,
     pub closed_dates: Vec<NaiveDate>,
 }
 
+impl Config {
+    pub fn validate(&self) -> anyhow::Result<()> {
+        use anyhow::ensure;
+        use std::collections::BTreeSet;
+        ensure!(
+            self.watchlist.len() == FIXED_WATCHLIST.len(),
+            "fixed watchlist must contain exactly ten approved symbols"
+        );
+        let actual: BTreeSet<_> = self.watchlist.iter().map(String::as_str).collect();
+        ensure!(
+            actual.len() == self.watchlist.len(),
+            "duplicate fixed watchlist symbol"
+        );
+        let expected: BTreeSet<_> = FIXED_WATCHLIST.into_iter().collect();
+        ensure!(
+            actual == expected,
+            "fixed watchlist differs from user-approved symbols: missing={:?}, unexpected={:?}",
+            expected.difference(&actual).collect::<Vec<_>>(),
+            actual.difference(&expected).collect::<Vec<_>>()
+        );
+        Ok(())
+    }
+}
+
 impl Default for Config {
     fn default() -> Self {
         Self {
-            watchlist: [
-                "2330", "2454", "3008", "3017", "3533", "3661", "5269", "3529", "5274", "6510",
-            ]
-            .map(String::from)
-            .to_vec(),
+            watchlist: FIXED_WATCHLIST.map(String::from).to_vec(),
             all_market: false,
             closed_dates: vec![],
         }

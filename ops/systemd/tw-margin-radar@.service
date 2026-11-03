@@ -33,6 +33,7 @@ CapabilityBoundingSet=
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 IPAddressDeny=169.254.0.0/16
 IPAddressDeny=fd20:ce::254/128
+BindReadOnlyPaths=/etc/tw-margin-radar/resolv.conf:/etc/resolv.conf
 ReadWritePaths=/var/lib/tw-margin-radar /var/www/tw-margin-radar/data
 StandardOutput=journal
 StandardError=journal

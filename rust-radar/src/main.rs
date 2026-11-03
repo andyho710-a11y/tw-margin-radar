@@ -67,20 +67,7 @@ fn taipei_now() -> chrono::DateTime<FixedOffset> {
 
 fn config(path: &Path) -> Result<Config> {
     let c: Config = serde_json::from_slice(&fs::read(path).context("config must exist")?)?;
-    ensure!(
-        c.all_market || c.watchlist.len() == 10,
-        "watchlist must contain exactly ten symbols"
-    );
-    ensure!(
-        c.watchlist.iter().collect::<BTreeSet<_>>().len() == c.watchlist.len(),
-        "duplicate watchlist symbol"
-    );
-    ensure!(
-        c.watchlist
-            .iter()
-            .all(|s| s.len() == 4 && s.bytes().all(|b| b.is_ascii_digit())),
-        "invalid symbol"
-    );
+    c.validate()?;
     Ok(c)
 }
 

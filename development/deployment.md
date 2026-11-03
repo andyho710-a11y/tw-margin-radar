@@ -4,7 +4,7 @@
 
 1. 先看 PR checks、build artifact與SHA256；在獨立測試環境確認二進位檔為Linux x86_64 musl靜態檔。交易VM不安裝Rust/GCC、不編譯。
 2. 重新量測VM RAM、磁碟及尖峰CPU，確認可容納192MiB工作上限與至少1GiB保留空間。重新核對現有程序狀態，將取樣存於使用者私人維運紀錄。
-3. 經使用者確認後，建立專用無登入使用者/群組 `tw-radar`。唯讀程式放 `/opt/tw-margin-radar`（root持有），設定放 `/etc/tw-margin-radar/radar.json`（root:tw-radar 0640）；state `/var/lib/tw-margin-radar` 由tw-radar持有。
+3. 經使用者確認後，建立專用無登入使用者/群組 `tw-radar`。唯讀程式放 `/opt/tw-margin-radar`（root持有），設定放 `/etc/tw-margin-radar/radar.json`（root:tw-radar 0640），將`ops/network/resolv.conf`安裝至`/etc/tw-margin-radar/resolv.conf`（root持有0644）；state `/var/lib/tw-margin-radar` 由tw-radar持有。
 4. 網頁僅放 `docs/rust` 的三個靜態檔於 `/var/www/tw-margin-radar`，建立可寫的 `data/` 子目錄。需要既有nginx的讀取群組與檔案權限核對；private state、raw及日誌不可放web root。若無web server，需另審查安裝、TLS、網域與對外防火牆，不能宣稱安裝批次就有公開手機網址。
 5. `ops/nginx/radar.conf.example` 預設僅127.0.0.1:8088，先本機驗證；正式手機可查看需獨立網域/TLS反向代理，或選GitHub Pages模式。此設定不覆寫現有server。
 6. 以專用使用者執行 `import --from ... --to ...` 補足至少21個連續交易日，再 `preview --date ... --output /var/lib/tw-margin-radar/review.json` 檢查。歷史補抓期間不發正式報告。
@@ -39,3 +39,13 @@
 ## 正式發布界線
 
 本分支 `.github/workflows/rust-validate.yml` 只有程式檢查與artifact，沒有schedule、GCP憑證、Pages寫權限或部署步驟；既有V2排程保持原狀。systemd範本目前只是檔案，沒有安裝到VM。若選Actions＋Pages，需另審查持久history位置及發布workflow，不能用Actions cache當唯一歷史來源。
+
+## 已完成的部署前隔離驗收
+
+台灣2026-11-03於指定VM使用一次性DynamicUser單元驗收，未安裝正式服務/帳號或啟用timer。測試複用正式範本的硬化屬性，只有使用者、runtime與resolver來源路徑為一次性替代值。cgroup v2實測CPU 0.2核心、MemoryHigh 128MiB、MemoryMax 192MiB、TasksMax 24；非root、零有效capabilities、NoNewPrivileges、ProtectHome、唯讀/etc均成立。另以48MiB硬上限、暫停MemoryHigh節流的縮小測試證實OOM僅終止自身測試單元。
+
+GCP原DNS使用metadata同位址；只封鎖169.254.0.0/16會連DNS一起封鎖。範本現在於服務mount namespace唯讀綁定專用公用DNS檔，**不修改主機/etc/resolv.conf**。實測metadata TCP在主機可連、受限單元逾時受阻，TWSE/TPEX官方HTTPS均200。這不是讀取metadata內容或憑證。
+
+驗收程式為`ops/verify_isolation.py`，預設只讀能力；`--execute-transient`才執行一次性測試，並要求至少384MiB可用RAM。需在正確固定VM與經授權的維運環境使用。測完驗證沒有殘留resolver、活動測試單元或正式雷達units；PM2逐項PID/狀態/重啟次數/起始時間前後相同。證據為`vm-isolation-evidence.json`。
+
+正式專用靜態帳號的權限、TLS/網域、排程實際觸發、通知目的地與部署/回退仍須部署審核。既有正式V2排程不受本分支變更。

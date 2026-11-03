@@ -34,6 +34,8 @@ pub struct Report {
     pub data_observed_at: chrono::DateTime<chrono::Utc>,
     pub historical_import: bool,
     pub scope: String,
+    pub universe_mode: String,
+    pub fixed_watchlist: Vec<String>,
     pub quote_count: usize,
     pub margin_matched_count: usize,
     pub scored_count: usize,
@@ -191,6 +193,7 @@ pub fn report(
     config: &Config,
     closed: &BTreeSet<NaiveDate>,
 ) -> Result<Report> {
+    config.validate()?;
     let mut history: Vec<_> = history.iter().filter(|s| s.date <= date).collect();
     history.sort_by_key(|s| s.date);
     ensure!(
@@ -259,6 +262,13 @@ pub fn report(
             "固定十檔高價觀察名單，並非當日股價前十名"
         }
         .into(),
+        universe_mode: if config.all_market {
+            "all_market"
+        } else {
+            "fixed"
+        }
+        .into(),
+        fixed_watchlist: config.watchlist.clone(),
         quote_count: current.stocks.len(),
         margin_matched_count: current
             .stocks

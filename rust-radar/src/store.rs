@@ -123,6 +123,26 @@ pub fn publish(state: &Path, public: &Path, report: &Report) -> Result<bool> {
         json(&daily, report)?;
     }
     let saved = fs::read(&daily)?;
+    let stored: serde_json::Value = serde_json::from_slice(&saved)?;
+    ensure!(stored["model_version"] == report.model_version
+        && stored["universe_mode"] == report.universe_mode
+        && stored["fixed_watchlist"] == serde_json::to_value(&report.fixed_watchlist)?,
+        "existing daily report uses a different watchlist/universe/model; manual versioned review required");
+    if report.universe_mode == "fixed" {
+        let symbols = stored["candidates"]
+            .as_array()
+            .context("invalid saved candidates")?
+            .iter()
+            .map(|c| c["symbol"].as_str())
+            .collect::<Option<std::collections::BTreeSet<_>>>()
+            .context("invalid saved symbol")?;
+        let expected: std::collections::BTreeSet<_> =
+            report.fixed_watchlist.iter().map(String::as_str).collect();
+        ensure!(
+            symbols == expected,
+            "saved daily report contains incorrect fixed symbols"
+        );
+    }
     let latest = public.join("latest.json");
     if latest.exists() {
         let v: serde_json::Value = serde_json::from_slice(&fs::read(&latest)?)?;

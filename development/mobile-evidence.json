@@ -1,0 +1,30 @@
+{
+  "fixed_ten_exact": true,
+  "browser_viewport_width": 420,
+  "layouts": [
+    {
+      "requested_content_width": 320,
+      "actual_content_width": 320,
+      "no_content_overflow": true,
+      "overflow_elements": [],
+      "columns": 1
+    },
+    {
+      "requested_content_width": 390,
+      "actual_content_width": 390,
+      "no_content_overflow": true,
+      "overflow_elements": [],
+      "columns": 1
+    }
+  ],
+  "search_7769": true,
+  "details_expand": true,
+  "refresh_keeps_filter": true,
+  "stage_filter": true,
+  "wrong_ten_hidden": true,
+  "all_market_outside_fixed_list": true,
+  "failed_refresh_clears": true,
+  "recovery_exact_ten": true,
+  "stale_warning": true,
+  "passed": true
+}

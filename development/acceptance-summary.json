@@ -1,86 +1,110 @@
 {
+  "verified_at_utc": "2026-11-03T02:45:59.932709+00:00",
   "date": "2026-10-22",
   "sessions": 31,
   "first": "2026-09-07",
   "last": "2026-10-22",
+  "universe_mode": "fixed",
+  "fixed_watchlist": [
+    "5274",
+    "2059",
+    "3443",
+    "3653",
+    "3008",
+    "7769",
+    "6515",
+    "2383",
+    "6223",
+    "2454"
+  ],
   "quote_count": 1949,
   "margin_matched_count": 1839,
   "scored_count": 10,
   "candidates": [
     {
-      "symbol": "6510",
-      "market": "TPEX",
-      "score": 60,
+      "symbol": "3653",
+      "name": "健策",
+      "market": "TWSE",
+      "score": 70,
       "stage": "觀察"
     },
     {
-      "symbol": "3017",
+      "symbol": "2059",
+      "name": "川湖",
       "market": "TWSE",
       "score": 60,
       "stage": "觀察"
     },
     {
-      "symbol": "3533",
+      "symbol": "7769",
+      "name": "鴻勁",
       "market": "TWSE",
       "score": 60,
       "stage": "觀察"
     },
     {
-      "symbol": "5269",
+      "symbol": "2383",
+      "name": "台光電",
       "market": "TWSE",
-      "score": 60,
+      "score": 40,
       "stage": "觀察"
     },
     {
-      "symbol": "3529",
-      "market": "TPEX",
+      "symbol": "3443",
+      "name": "創意",
+      "market": "TWSE",
+      "score": 40,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "6515",
+      "name": "穎崴",
+      "market": "TWSE",
       "score": 40,
       "stage": "觀察"
     },
     {
       "symbol": "3008",
+      "name": "大立光",
       "market": "TWSE",
       "score": 30,
       "stage": "觀察"
     },
     {
       "symbol": "5274",
+      "name": "信驊",
+      "market": "TPEX",
+      "score": 10,
+      "stage": "觀察"
+    },
+    {
+      "symbol": "6223",
+      "name": "旺矽",
       "market": "TPEX",
       "score": 10,
       "stage": "觀察"
     },
     {
       "symbol": "2454",
+      "name": "聯發科",
       "market": "TWSE",
       "score": 10,
       "stage": "觀察"
-    },
-    {
-      "symbol": "3661",
-      "market": "TWSE",
-      "score": 5,
-      "stage": "觀察"
-    },
-    {
-      "symbol": "2330",
-      "market": "TWSE",
-      "score": 0,
-      "stage": "融資風險"
     }
   ],
-  "backtest_trades": 2,
-  "backtest_avg_return_pct": -3.4937740155920602,
+  "backtest_trades": 0,
+  "backtest_avg_return_pct": null,
   "backtest_skipped_reports": 0,
-  "raw_bytes": 70411738,
-  "normalized_bytes": 22570801,
-  "report_sha256": "6847650867bd715120b4ce5233a2c6263d125c2f6fccb399c409fd2b8ffff697",
+  "report_sha256": "a96a8f138bd130f1b09404b30c27706fff45ab46c3b43313edd00f1daee6e1f7",
   "all_market": {
     "date": "2026-10-22",
     "quote_count": 1949,
     "margin_matched_count": 1839,
     "scored_count": 1733,
+    "universe_mode": "all_market",
     "excluded_count": 216,
-    "candidate_count": 10
+    "candidate_count": 10,
+    "outside_fixed_count": 10
   },
-  "note": "Historical research snapshot only. 2026-10-23 unavailable from both official markets; refused incomplete import. Not a current market report."
+  "note": "User-approved fixed ten replaces previous assumed list. Historical research only; 2026-10-23 data gap remains fail-closed, not a current market report."
 }

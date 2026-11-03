@@ -2,6 +2,8 @@
 const $=id=>document.getElementById(id);
 const escapeHtml=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const n=(x,d=0)=>Number.isFinite(x)?x.toLocaleString("zh-TW",{maximumFractionDigits:d}):"未提供";
+const fixedWatchlist=["5274","2059","3443","3653","3008","7769","6515","2383","6223","2454"];
+const exactSymbols=values=>Array.isArray(values)&&values.length===10&&new Set(values).size===10&&fixedWatchlist.every(s=>values.includes(s));
 let stocks=[];
 function render(){
   const q=$("search").value.trim(),stage=$("stage").value;
@@ -17,12 +19,15 @@ async function load(){
     const d=await response.json();
     if(d.schema_version!==1||!/^\d{4}-\d{2}-\d{2}$/.test(d.date)||!Array.isArray(d.candidates)||d.candidates.length!==10)throw Error("完整報告格式不符");
     if(!d.candidates.every(s=>s.breakdown&&Number.isInteger(s.score)&&s.score>=0&&s.score<=100))throw Error("候選評分格式不符");
+    if(!["fixed","all_market"].includes(d.universe_mode)||!exactSymbols(d.fixed_watchlist))throw Error("固定監控名單與指定十檔不符");
+    if(new Set(d.candidates.map(s=>s.market+":"+s.symbol)).size!==10)throw Error("候選股票重複");
+    if(d.universe_mode==="fixed"&&!exactSymbols(d.candidates.map(s=>s.symbol)))throw Error("固定模式候選含錯誤或遺漏股票");
     const generated=Date.parse(d.generated_at), observed=Date.parse(d.data_observed_at), session=Date.parse(d.date+"T00:00:00+08:00");
     if(!Number.isFinite(session)||new Date(session+8*3600000).toISOString().slice(0,10)!==d.date||!Number.isFinite(generated)||!Number.isFinite(observed)||generated>Date.now()+300000||observed>generated||session>Date.now())throw Error("資料時間無效或來自未來");
     stocks=d.candidates;
     $("date").textContent=d.date;
     $("coverage").textContent=`${n(d.scored_count)} / ${n(d.quote_count)}`;
-    $("scope").textContent=d.scope+"。高排名不代表符合買進條件。";
+    $("scope").textContent=d.scope+"。"+(d.universe_mode==="fixed"?"固定監控："+fixedWatchlist.join("、"):"全市場獨立掃描，不限於固定十檔。")+"。高排名不代表符合買進條件。";
     const age=(Date.now()-(Date.parse(d.date)+16*3600000))/86400000;
     const stale=age>2;
     $("status").className="notice"+((stale||d.historical_import)?" warn":"");

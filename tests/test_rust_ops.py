@@ -9,6 +9,9 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('radar_alert', ROOT / 'ops/alert.py')
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
+isolation_spec = importlib.util.spec_from_file_location('radar_isolation', ROOT / 'ops/verify_isolation.py')
+isolation = importlib.util.module_from_spec(isolation_spec)
+isolation_spec.loader.exec_module(isolation)
 
 
 class OpsTests(unittest.TestCase):
@@ -61,6 +64,19 @@ class OpsTests(unittest.TestCase):
             self.assertIn(setting, service)
         self.assertNotIn('pm2', service)
         self.assertNotIn('/home/', service)
+
+    def test_isolation_probe_uses_reviewed_service_policy_and_private_dns(self):
+        service = (ROOT / 'ops/systemd/tw-margin-radar@.service').read_text()
+        properties = isolation.policy(service)
+        self.assertIn(('BindReadOnlyPaths', '/etc/tw-margin-radar/resolv.conf:/etc/resolv.conf'), properties)
+        self.assertIn(('IPAddressDeny', '169.254.0.0/16'), properties)
+        self.assertIn(('IPAddressDeny', 'fd20:ce::254/128'), properties)
+        resolver = (ROOT / 'ops/network/resolv.conf').read_text()
+        self.assertIn('nameserver 8.8.8.8', resolver)
+        self.assertIn('nameserver 1.1.1.1', resolver)
+        self.assertNotIn('nameserver 169.254.', resolver)
+        with self.assertRaises(ValueError):
+            isolation.policy(service.replace('ProtectHome=true', ''))
 
     def test_review_ci_has_no_deployment_permissions(self):
         workflow = (ROOT / '.github/workflows/rust-validate.yml').read_text()

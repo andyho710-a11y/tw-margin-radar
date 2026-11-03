@@ -1,7 +1,7 @@
 name: Rust radar review checks
 on:
   pull_request:
-    paths: ['rust-radar/**', 'config/**', 'docs/rust/**', 'ops/**', 'tests/test_rust_ops.py', 'tests/rust_ui.test.cjs', '.github/workflows/rust-validate.yml']
+    paths: ['rust-radar/**', 'config/**', 'docs/rust/**', 'ops/**', 'tests/test_rust_ops.py', 'tests/rust_ui.test.cjs', 'tests/wmux_mobile_probe.js', '.github/workflows/rust-validate.yml']
   push:
     branches: ['codex/rust-margin-radar']
   workflow_dispatch:
@@ -28,6 +28,7 @@ jobs:
           python3 -m unittest discover -s tests -p test_rust_ops.py -v
           node --check docs/rust/radar.js
           node --test tests/rust_ui.test.cjs
+          node --check tests/wmux_mobile_probe.js
       - name: Build a static Linux release for later review (no deployment)
         run: |
           sudo apt-get update -qq

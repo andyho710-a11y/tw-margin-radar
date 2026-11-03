@@ -1,0 +1,43 @@
+{
+  "uid_nonroot": true,
+  "etc_readonly": true,
+  "no_new_privileges": true,
+  "effective_capabilities_zero": true,
+  "home_hidden": true,
+  "kernel_limits": {
+    "cpu_quota_cores": 0.2,
+    "memory_max_bytes": 201326592,
+    "memory_high_bytes": 134217728,
+    "tasks_max": 24
+  },
+  "limits_applied": true,
+  "metadata_blocked_by_policy": true,
+  "metadata_connect_errno": null,
+  "metadata_timeout": true,
+  "official_dns_works": true,
+  "official_https_status": {
+    "TWSE": 200,
+    "TPEX": 200
+  },
+  "official_https_works": true,
+  "private_runtime_writable": true,
+  "passed": true,
+  "metadata_baseline_tcp_reachable": true,
+  "memory_limit_contained_oom": true,
+  "oom_probe_returncode": 1,
+  "transient_units_inactive": true,
+  "production_units_installed": false,
+  "schedules_enabled": false,
+  "pm2_control_calls": 0,
+  "before_utc": "2026-11-03T02:20:19Z",
+  "after_utc": "2026-11-03T02:41:10Z",
+  "pm2_identity_state_restart_counts_unchanged": true,
+  "ram_available_before_mib": 453,
+  "ram_available_after_mib": 458,
+  "disk_free_after_gib": 3.94,
+  "cleanup": {
+    "temporary_resolvers_remaining": 0,
+    "active_test_units": "",
+    "installed_production_units": ""
+  }
+}

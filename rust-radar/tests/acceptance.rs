@@ -41,7 +41,7 @@ fn series(count: usize) -> Vec<Snapshot> {
                 .watchlist
                 .iter()
                 .map(|symbol| {
-                    let market = if ["3529", "5274", "6510"].contains(&symbol.as_str()) {
+                    let market = if ["5274", "6223"].contains(&symbol.as_str()) {
                         "TPEX"
                     } else {
                         "TWSE"
@@ -85,21 +85,132 @@ fn series(count: usize) -> Vec<Snapshot> {
 }
 
 #[test]
+fn shipped_config_and_default_exactly_match_the_user_approved_ten() {
+    // Deliberately independent of FIXED_WATCHLIST and Config::default(): this is
+    // the user's acceptance oracle, not a comparison of two implementation copies.
+    let expected = [
+        "5274", "2059", "3443", "3653", "3008", "7769", "6515", "2383", "6223", "2454",
+    ];
+    let shipped: Config = serde_json::from_str(include_str!("../../config/radar.json")).unwrap();
+    assert_eq!(shipped.watchlist, expected);
+    assert_eq!(Config::default().watchlist, expected);
+    assert_eq!(tw_margin_radar::model::FIXED_WATCHLIST, expected);
+    assert_eq!(shipped.watchlist.iter().collect::<BTreeSet<_>>().len(), 10);
+    shipped.validate().unwrap();
+}
+
+#[test]
+fn wrong_missing_extra_duplicate_or_padded_symbols_fail_in_both_modes() {
+    for all_market in [false, true] {
+        let good = Config {
+            all_market,
+            ..Config::default()
+        };
+        let mut cases = vec![];
+        let mut wrong = good.clone();
+        wrong.watchlist[0] = "2330".into();
+        cases.push(wrong);
+        let mut missing = good.clone();
+        missing.watchlist.pop();
+        cases.push(missing);
+        let mut extra = good.clone();
+        extra.watchlist.push("2330".into());
+        cases.push(extra);
+        let mut duplicate = good.clone();
+        duplicate.watchlist[0] = duplicate.watchlist[1].clone();
+        cases.push(duplicate);
+        let mut padded = good.clone();
+        padded.watchlist[0] = " 5274".into();
+        cases.push(padded);
+        for invalid in cases {
+            assert!(
+                invalid.validate().is_err(),
+                "bad config accepted: {:?}",
+                invalid.watchlist
+            );
+        }
+        good.validate().unwrap();
+    }
+}
+
+#[test]
+fn executable_rejects_wrong_ten_before_network_or_report_changes() {
+    let tmp = tempfile::tempdir().unwrap();
+    let mut wrong = Config::default();
+    wrong.watchlist[0] = "2330".into();
+    let config = tmp.path().join("wrong.json");
+    store::json(&config, &wrong).unwrap();
+    let public = tmp.path().join("public");
+    store::atomic(&public.join("latest.json"), b"last complete report").unwrap();
+    let state = tmp.path().join("state");
+    let result = std::process::Command::new(env!("CARGO_BIN_EXE_tw-margin-radar"))
+        .arg("--config")
+        .arg(config)
+        .arg("--state")
+        .arg(&state)
+        .arg("--public")
+        .arg(&public)
+        .arg("update")
+        .output()
+        .unwrap();
+    assert!(!result.status.success());
+    assert!(String::from_utf8_lossy(&result.stderr).contains("fixed watchlist differs"));
+    assert!(!state.join("raw").exists());
+    assert!(!state.join("history").exists());
+    assert_eq!(
+        fs::read(public.join("latest.json")).unwrap(),
+        b"last complete report"
+    );
+}
+
+#[test]
+fn all_market_scans_both_markets_outside_fixed_list_and_survives_missing_fixed_stock() {
+    let mut h = series(21);
+    for day in &mut h {
+        for (market, symbol) in [("TWSE", "2330"), ("TPEX", "3529")] {
+            let mut outside = day.stocks["TWSE:2059"].clone();
+            outside.quote.market = market.into();
+            outside.quote.symbol = symbol.into();
+            day.stocks.insert(format!("{market}:{symbol}"), outside);
+        }
+        // Fixed-mode must fail, while the independent all-market universe still has 11 stocks.
+        day.stocks.remove("TWSE:7769");
+    }
+    let fixed = Config::default();
+    assert!(scoring::report(&h, h[20].date, &fixed, &BTreeSet::new()).is_err());
+    let full = Config {
+        all_market: true,
+        ..fixed
+    };
+    let r = scoring::report(&h, h[20].date, &full, &BTreeSet::new()).unwrap();
+    assert_eq!(r.scored_count, 11);
+    assert_eq!(r.candidates.len(), 10);
+    assert!(r
+        .candidates
+        .iter()
+        .any(|c| c.market == "TWSE" && c.symbol == "2330"));
+    assert!(r
+        .candidates
+        .iter()
+        .any(|c| c.market == "TPEX" && c.symbol == "3529"));
+}
+
+#[test]
 fn official_fixture_matches_both_markets_and_financing_not_shorting() {
     let s = sources::assemble(date(), &bodies(), true).unwrap();
     assert_eq!(s.stocks.len(), 10);
-    assert_eq!(s.stocks["TWSE:2330"].quote.close, 2370.0);
-    assert_eq!(s.stocks["TWSE:2330"].quote.volume_shares, 36_615_931);
-    let m = s.stocks["TWSE:2330"].margin.as_ref().unwrap();
+    assert_eq!(s.stocks["TWSE:2059"].quote.close, 9650.0);
+    assert_eq!(s.stocks["TWSE:2059"].quote.volume_shares, 428_474);
+    let m = s.stocks["TWSE:2059"].margin.as_ref().unwrap();
     assert_eq!(
         (m.previous_lots, m.balance_lots, m.quota_lots, m.change()),
-        (35343, 34961, 6483092, -382)
+        (671, 648, 23824, -23)
     );
     assert_eq!(
-        s.stocks["TPEX:3529"].margin.as_ref().unwrap().balance_lots,
-        1824
+        s.stocks["TPEX:5274"].margin.as_ref().unwrap().balance_lots,
+        151
     );
-    assert_eq!(s.stocks["TPEX:3529"].quote.close, 2490.0);
+    assert_eq!(s.stocks["TPEX:5274"].quote.close, 15970.0);
     assert!(s.sources.values().all(|s| s.sha256.len() == 64));
 }
 #[test]
@@ -115,8 +226,8 @@ fn official_no_trade_marker_may_have_whitespace() {
     let mut v: Value = serde_json::from_slice(&bodies()["tpex_quotes"]).unwrap();
     v["tables"][0]["data"][0][2] = json!(" ---");
     let q = sources::parse_quotes(&v, "TPEX", date()).unwrap();
-    assert!(!q.contains_key("TPEX:3529"));
-    assert_eq!(q.len(), 2);
+    assert!(!q.contains_key("TPEX:5274"));
+    assert_eq!(q.len(), 1);
 }
 #[test]
 fn mismatched_dates_fail_and_never_advance_output() {
@@ -147,7 +258,7 @@ fn missing_financing_is_not_zero_and_zero_quota_is_unknown() {
     v["tables"][0]["data"].as_array_mut().unwrap().remove(0);
     b.insert("twse_margin".into(), serde_json::to_vec(&v).unwrap());
     let s = sources::assemble(date(), &b, true).unwrap();
-    assert!(s.stocks["TWSE:2330"].margin.is_none());
+    assert!(s.stocks["TWSE:2059"].margin.is_none());
     let m = Margin {
         previous_lots: 0,
         balance_lots: 0,
@@ -180,14 +291,14 @@ fn daily_top_ten_have_auditable_score_and_risk_penalty() {
         assert_eq!(c.score, c.breakdown.values().sum::<i32>().clamp(0, 100));
     }
     let mut risk = h[..=20].to_vec();
-    let o = risk[20].stocks.get_mut("TWSE:2330").unwrap();
+    let o = risk[20].stocks.get_mut("TWSE:2059").unwrap();
     o.quote.close = 80.0;
     let m = o.margin.as_mut().unwrap();
     m.balance_lots = m.previous_lots + 20;
     m.buys_lots = 20;
     m.sells_lots = 0;
     let r = scoring::report(&risk, risk[20].date, &Config::default(), &BTreeSet::new()).unwrap();
-    let c = r.candidates.iter().find(|c| c.symbol == "2330").unwrap();
+    let c = r.candidates.iter().find(|c| c.symbol == "2059").unwrap();
     assert!(c.price_down_margin_up);
     assert_eq!(c.stage, "融資風險");
     assert!(c.score < 60);
@@ -209,7 +320,7 @@ fn future_prices_cannot_change_past_scores() {
 fn incomplete_history_or_watchlist_cannot_publish() {
     let mut h = series(25);
     assert!(scoring::report(&h[..20], h[19].date, &Config::default(), &BTreeSet::new()).is_err());
-    h[20].stocks.remove("TWSE:2330");
+    h[20].stocks.remove("TWSE:2059");
     assert!(scoring::report(&h, h[20].date, &Config::default(), &BTreeSet::new()).is_err());
     h.remove(5);
     assert!(scoring::report(&h, h[20].date, &Config::default(), &BTreeSet::new()).is_err());
@@ -219,7 +330,7 @@ fn corporate_action_or_gap_in_balances_is_excluded() {
     let mut h = series(21);
     h[10]
         .stocks
-        .get_mut("TWSE:2330")
+        .get_mut("TWSE:2059")
         .unwrap()
         .margin
         .as_mut()
@@ -327,13 +438,34 @@ fn report_publication_is_idempotent_and_recovers_interrupted_pointer() {
     assert!(store::publish(t.path(), &public, &later).unwrap());
     assert!(store::publish(t.path(), &public, &r).is_err());
 }
+
+#[test]
+fn legacy_or_wrong_watchlist_daily_report_cannot_silently_be_reused() {
+    let tmp = tempfile::tempdir().unwrap();
+    let h = series(21);
+    let r = scoring::report(&h, h[20].date, &Config::default(), &BTreeSet::new()).unwrap();
+    let daily = tmp.path().join("reports").join(format!("{}.json", r.date));
+    let mut wrong = serde_json::to_value(&r).unwrap();
+    wrong["fixed_watchlist"][0] = json!("2330");
+    store::json(&daily, &wrong).unwrap();
+    let public = tmp.path().join("public");
+    store::atomic(&public.join("latest.json"), b"previous complete report").unwrap();
+    assert!(store::publish(tmp.path(), &public, &r).is_err());
+    assert_eq!(
+        fs::read(public.join("latest.json")).unwrap(),
+        b"previous complete report"
+    );
+    wrong.as_object_mut().unwrap().remove("fixed_watchlist");
+    store::json(&daily, &wrong).unwrap();
+    assert!(store::publish(tmp.path(), &public, &r).is_err());
+}
 #[test]
 fn history_is_immutable_and_records_actual_import_time() {
     let t = tempfile::tempdir().unwrap();
     let mut s = sources::assemble(date(), &bodies(), true).unwrap();
     store::save_snapshot(t.path(), &s).unwrap();
     store::save_snapshot(t.path(), &s).unwrap();
-    s.stocks.get_mut("TWSE:2330").unwrap().quote.close += 1.0;
+    s.stocks.get_mut("TWSE:2059").unwrap().quote.close += 1.0;
     assert!(store::save_snapshot(t.path(), &s).is_err());
     let h = store::history(t.path()).unwrap();
     assert_eq!(h.len(), 1);
